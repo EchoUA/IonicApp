@@ -39,8 +39,8 @@
                 var ref = new Firebase("https://fiery-heat-622.firebaseio.com/");
                 var auth = $firebaseAuth(ref);
                 auth.$authWithPassword({
-                    email: 'mydogshowapp@gmail.com',
-                    password: 'myd0gsh0w2pp1!'
+                    email: 'test@mail.com',
+                    password: 'parol'
                 }).then(function(authData) {
                     console.log("Logged in as:" + authData.uid);
                     $rootScope.usrLogged = true;
