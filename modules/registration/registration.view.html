@@ -1,0 +1,109 @@
+<ion-view view-title="{{lang[appLang.type]['register']}}" id="registration">
+    <ion-content has-bouncing="false" class="padding">
+        <form>
+            <div class="form_in">
+                <div class="list">
+                    <label class="item item-input calm-border" data-ng-class="{'assertive-border': vm.errors.first_name, 'calm-border': !vm.errors.first_name}">
+                        <input type="text" placeholder="{{lang[appLang.type]['firstname']}}*" data-ng-model="vm.formdata.first_name" name="first_name">
+                        <span class="assertive" data-ng-hide="!vm.errors.first_name">
+                            <span data-ng-show="vm.errors.first_name">{{vm.errors.first_name}}</span>
+                        </span>
+                    </label>
+                    <label class="item item-input calm-border" data-ng-class="{'assertive-border': vm.errors.last_name,'calm-border': !vm.errors.last_name}">
+                        <input type="text" placeholder="{{lang[appLang.type]['lastname']}}*" data-ng-model="vm.formdata.last_name" name="last_name">
+                        <span class="assertive" data-ng-hide="!vm.errors.last_name">
+                            <span data-ng-show="vm.errors.last_name">{{vm.errors.last_name}}</span>
+                        </span>
+                    </label>
+                    <label class="item item-input calm-border item-select" data-ng-class="{'assertive-border': vm.errors.country, 'calm-border': !vm.errors.country }">
+                        <select data-ng-model="vm.formdata.country" name="country">
+                            <option value="" selected>{{lang[appLang.type]['country']}}*</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Faroe Islands">Faroe Islands</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Gibraltar">Gibraltar</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Macedonia">Macedonia</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Moldova">Moldova</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russia">Russia</option>
+                            <option value="San Marino">San Marino</option>
+                            <option value="Serbia">Serbia</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Vatican city">Vatican city</option>
+                            <option value="Yugoslavia">Yugoslavia</option>
+                            <option value="Isle of Man">Isle of Man</option>
+                            <option value="Kosovo">Kosovo</option>
+                            <option value="Montenegro">Montenegro</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="assertive" data-ng-hide="!vm.errors.country">
+                            <span data-ng-show="vm.errors.country">{{vm.errors.country}}</span>
+                        </span>
+                    </label>
+                    <label class="item item-input calm-border" data-ng-class="{ 'assertive-border': vm.errors.email, 'calm-border': !vm.errors.email}">
+                        <input type="text" placeholder="{{lang[appLang.type]['email']}}*" data-ng-model="vm.formdata.email" name="email">
+                        <span class="assertive" data-ng-hide="!vm.errors.email">
+                            <span data-ng-show="vm.errors.email">{{vm.errors.email}}</span>
+                        </span>
+                    </label>
+                    <label class="item istem-input calm-border" data-ng-class="{ 'assertive-border': vm.errors.password, 'calm-border': !vm.errors.password }">
+                        <input type="password" placeholder="{{lang[appLang.type]['password']}}*" data-ng-model="vm.formdata.password" name="password">
+                        <span class="assertive" data-ng-hide="!vm.errors.password">
+                            <span data-ng-show="vm.errors.password">{{vm.errors.password}}</span>
+                        </span>
+                    </label>
+                    <label class="item item-input calm-border" data-ng-class="{ 'assertive-border': vm.errors.password2, 'calm-border': !vm.errors.password2}">
+                        <input type="password" placeholder="{{lang[appLang.type]['pass_verification']}}*" data-ng-model="vm.formdata.password2" name="password2">
+                        <span class="assertive" data-ng-hide="!vm.errors.password2">
+                            <span data-ng-show="vm.errors.password2">{{vm.errors.password2}}</span>
+                        </span>
+                    </label>
+                </div>
+                <button class="button button-block button-calm" data-ng-click="vm.registrate()">{{lang[appLang.type]['sign_up']}}</button>
+                <!-- TODO: реєстрація через соцмережі -->
+                <!--<button class="button button-block button-calm fb" ng-click="login()">Sign up via Facebook</button>
+        <button class="button button-block button-calm gp" ng-click="login()">Sign up via Google+</button>-->
+                <div class="sign">
+                    {{lang[appLang.type]['have_account']}}
+                    <a href="#{{ROUTES.MAIN}}{{ROUTES.LOGIN}}">
+                      {{lang[appLang.type]['sign_in']}}
+                    </a>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view view-title="{{lang[appLang.type]['information']}}" id="show">
+    <div class="tabs-striped tabs-top tabs-background-calm tabs-color-light">
+        <div class="tabs">
+            <a class="tab-item" href="#{{ROUTES.MAIN}}{{ROUTES.SHOWBREEDS}}/{{evtId}}">
+                <i class="icon breeds"></i>
+            </a>
+            <a class="tab-item active" href="#{{ROUTES.MAIN}}{{ROUTES.SHOWINFO}}/{{evtId}}">
+                <i class="icon info"></i>
+            </a>
+            <a class="tab-item" href="#{{ROUTES.MAIN}}{{ROUTES.SHOWPROGRAM}}/{{evtId}}">
+                <i class="icon program"></i>
+            </a>
+            <a class="tab-item" href="#{{ROUTES.MAIN}}{{ROUTES.SHOWTROPHYS}}/{{evtId}}">
+                <i class="icon ion-trophy"></i>
+            </a>
+        </div>
+    </div>
+    <div id="showinfo-elastic-header" class="elastic-header">
+        <div class="img" image-lazy-src="{{vm.data.event.image  ||'img/placeholder-big.png'}}" image-lazy-loader="android" image-lazy-background-image="true">
+            <h2>{{vm.data.event.title}}</h2>
+        </div>
+    </div>
+    <ion-content has-bouncing="false" delegate-handle="example-scroller" elastic-header="showinfo-elastic-header" overflow-scroll="false" class="information">
+        <div class="content">
+            <div class="post" data-ng-bind-html="vm.data.event.information"></div>
+        </div>
+    </ion-content>
+</ion-view>

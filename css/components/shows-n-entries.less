@@ -1,0 +1,69 @@
+#sne{
+  .tabs-top > .tabs, .tabs.tabs-top{
+    .tab-item{
+      max-width: 10000px;
+      font-size: 16px;
+      font-weight: 500;
+      .tab-title{
+        color: #228096;
+      }
+      &.tab-item-active .tab-title{
+        color: #fff;
+      }
+    }
+  }
+  .shows-list{
+    .item{
+      min-height: 80px;
+      border-color: #ecf0f1;
+      .item-content{
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 105px;
+        min-height: 80px;
+        &:after{
+          position: absolute;
+          width: 8px;
+          height: 14px;
+          right: 30px;
+          top: 50%;
+          margin-top: -7px;
+          content: "\f125";
+          font-family: "Ionicons";
+          line-height: 14px;
+          color: #fb7671;
+          font-size: 18px;
+        }
+        .item-image{
+          top: 4px;
+          left: 8px;
+          width: 86px;
+          height: 72px;
+          background-size: cover;
+          background-position: center;
+        }
+        h2{
+          color: #228096;
+          font-size: 16px;
+          font-weight: 400;
+          padding-top: 14px;
+        }
+        p{
+          color: #757575;
+          font-size: 12px;
+          font-weight: 300;
+          padding-left: 17px;
+          position: relative;
+          &:before{
+            content: "\f3b3";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-family: "Ionicons";
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+}

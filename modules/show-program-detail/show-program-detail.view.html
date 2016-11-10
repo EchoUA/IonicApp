@@ -1,0 +1,40 @@
+<ion-view view-title="{{lang[appLang.type]['program']}}" id="show" class="graybg">
+    <div class="tabs-striped tabs-top tabs-background-calm tabs-color-light">
+        <div class="tabs">
+            <a class="tab-item" href="#{{ROUTES.MAIN}}{{ROUTES.SHOWBREEDS}}/{{evtId}}">
+                <i class="icon breeds"></i>
+            </a>
+            <a class="tab-item" href="#{{ROUTES.MAIN}}{{ROUTES.SHOWINFO}}/{{evtId}}">
+                <i class="icon info"></i>
+            </a>
+            <a class="tab-item active" href="#{{ROUTES.MAIN}}{{ROUTES.SHOWPROGRAM}}/{{evtId}}">
+                <i class="icon program"></i>
+            </a>
+        </div>
+    </div>
+    <ion-content data-has-bouncing="false" class="programdetail">
+        <a href="#{{ROUTES.MAIN}}{{ROUTES.SHOWPROGRAM}}/{{evtId}}" class="back">{{vm.data.program
+      .date}}</a>
+        <div class="data-set" data-ng-hide="data.program.elements.length">
+            <div class="nores">{{lang[appLang.type]['no_info']}}</div>
+        </div>
+        <div class="items" data-ng-show="data.program.elements.length">
+            <div class="item {{item.type == 'wait'? 'item-divider':''}}" data-ng-repeat="item in vm.data.program.elements">
+                <table data-ng-show="item.type == 'point'">
+                    <tr>
+                        <td>
+                            {{item.time}}
+                            <br>
+                            <small>( {{item.duration_time}} )</small>
+                        </td>
+                        <td>
+                            <span>{{item.title}}</span>
+                            <small>{{item.description}} </small>
+                        </td>
+                    </tr>
+                </table>
+                <span data-ng-show="item.type == 'wait'">{{item.title}}</span>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

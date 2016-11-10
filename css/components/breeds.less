@@ -1,0 +1,367 @@
+#breeds{
+  .tabs-top>.tabs .tab-item,
+  .tabs.tabs-top .tab-item {
+    max-width: 10000px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #228096 !important;
+    border-top: 1px solid rgba(255,255,255,.3);
+    border-right: 1px  solid rgba(255,255,255,.3);
+    &:last-of-type{border-right: 0;}
+  }
+  .data-set .spinner-android {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .list.breeds{
+    .item{
+      position: relative;
+      padding: 14px 60px 14px 40px;
+      color: #228096;
+      font-size: 16px;
+      line-height: 18px;
+      display: block;
+      font-weight: 400;
+      text-decoration: none !important;
+      &:after{
+        position: absolute;
+        width: 8px;
+        height: 14px;
+        right: 30px;
+        top: 50%;
+        margin-top: -7px;
+        content: "\f125";
+        font-family: "Ionicons";
+        line-height: 14px;
+        color: #fb7671;
+        font-size: 18px;
+      }
+    }
+  }
+
+  ion-content.breed{
+    top: 93px;
+    .content{ background-color: #ecf0f1;}
+    .tt{
+      padding: 15px 45px 12px;
+      box-shadow: 0 1px 2px rgba(0, 0, 1, 0.25);
+      background-color: #fff;
+      margin-bottom: 10px;
+      .title{
+        color: #228096;
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+      .time{
+        color: #757575;
+        font-size: 18px;
+        font-weight: 400;
+      }
+      @media (max-width: 360px) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+    .data{
+      padding: 10px 45px 5px;
+      background-color: #fff;
+      box-shadow: 0 1px 2px rgba(0, 0, 1, 0.25);
+      font-size: 0;
+      position: relative;
+      .graph{
+        width: 50%;
+        display: inline-block;
+        position: relative;
+        height: 135px;
+        vertical-align: top;
+        .male{
+          top: 0;
+          left: 0;
+          position: absolute;
+          width: 132px;
+          height: 132px;
+        }
+        .female{
+          top: 8px;
+          left: 8px;
+          position: absolute;
+          width: 116px;
+          height: 116px;
+        }
+        .total{
+          position: absolute;
+          top: 45px;
+          left: 10px;
+          width: 112px;
+          color: #d5d6d6;
+          font-weight: 400;
+          font-size: 24px;
+          text-align: center;
+          small{
+            font-size: 16px;
+          }
+        }
+      }
+      .information{
+        width: 48%;
+        display: inline-block;
+        padding-left: 7px;
+        .title{
+          color: darkgrey;
+          font-size: 16px;
+          font-weight: 400;
+          margin-bottom: 10px;
+        }
+        .sex{
+          margin-bottom: 10px;
+          p{
+            padding-left: 25px;
+            margin-bottom: 5px;
+            position: relative;
+            color: #757575;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: lowercase;
+            &:before{
+              content: "";
+              width: 8px;
+              height: 8px;
+              position: absolute;
+              top: 50%;
+              margin-top: -4px;
+              left: 0;
+              border-radius: 50%;
+            }
+            &.male:before{
+              background-color: #42c5e8;
+            }
+            &.female:before{
+              background-color: #fb7e79;
+            }
+          }
+        }
+        .judget{
+          font-size: 16px;
+          font-weight: 400;
+          color: darkgrey;
+          a{
+            text-decoration: none;
+            color: #47c7e9;
+          }
+          span:last-of-type br{display: none;}
+        }
+        .detail{
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          width: 60px;
+          z-index: 10;
+        }
+      }
+      &:after{
+        position: absolute;
+        width: 8px;
+        height: 14px;
+        right: 30px;
+        top: 50%;
+        margin-top: -7px;
+        content: "";
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAOCAYAAAASVl2WAAABCklEQVQYV2P8WVLYwcj43+np6w92igsW/GBAA4y/SwvfMjAyCP3///9CW/cE4wYGhn/Iahi/FxQosLAxnGBgYBT/z8Bwgq2r3xJFAYjzrShLlpWZ7RIDI6MAw///B1i7JzjCFDHCGD9K81SZGZkuMDAwcjEw/N/O2jXBCyQHVwDi/CzJ02FiYj7PwMDAwvCfYT1rd38QigKQoq9lOVJsDCznQG5i+M+wH6+C//8ZDuKx4v8G1u4JgQhHFmapMLOyXQQ78j/DDtbufk+4I5G9CTKWrbvfAe7N78XZ8izMrCfBAfX//0m27gkWKAEFD2oGhosb7j8xDlu9+i+Kgp+lBZ2MDAygyLLFFlkAjK5kTqFDC3MAAAAASUVORK5CYII=);
+      }
+      @media (max-width: 360px) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+  }
+  ion-content.breedinfo{
+    .content{background-color: #ecf0f1;}
+    .data{
+      background-color: white;
+      box-shadow: 0 1px 2px rgba(0, 0, 1, 0.26);
+      .it{
+        padding-left: 71px;
+        border-top: 1px solid #ecf0f1;
+        min-height: 20px;
+        line-height: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 20px;
+        color: #757575;
+        font-size: 16px;
+        font-weight: 400;
+        position: relative;
+        a{
+          color: #42c5e8;
+          text-decoration: none;
+        }
+        i{
+          width: 21px;
+          height: 22px;
+          position: absolute;
+          left: 18px;
+          top: 50%;
+          margin-top: -11px;
+          color: #42c5e8;
+          font-family: "Ionicons";
+          font-size: 26px;
+          &.star:before{
+            content: "\f4b2";
+            font-weight: bold;
+          }
+          &.info:before{
+            content: "\f44d";
+          }
+          &.ctry:before{
+            content: "\f3a4";
+          }
+          &.stand:before{
+            content: "\f479";
+            font-weight: bold;
+          }
+          &.glob:before{
+            content: "\f276";
+          }
+        }
+      }
+    }
+    .txt{
+      padding: 0 15px;
+      padding-bottom: 15px;
+      padding-top: 30px;
+      color: #212121;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 24px;
+      background-color: #ecf0f1;
+    }
+  }
+  ion-content.breedstats{
+    background-color: #ecf0f1;
+    .graph{
+      position: relative;
+      padding-top: 265px;
+      height: 332px;
+      background-color: white;
+      box-shadow: 0 1px 2px rgba(0, 0, 1, 0.25);
+      margin-bottom: 25px;
+      text-transform: lowercase;
+      .male{
+        top: 32px;
+        left: 50%;
+        margin-left: -105px;
+        position: absolute;
+        width: 210px;
+        height: 210px;
+      }
+      .female{
+        top: 45px;
+        left: 50%;
+        margin-left: -92px;
+        position: absolute;
+        width: 184px;
+        height: 184px;
+      }
+      .total{
+        position: absolute;
+        top: 112px;
+        left: 0px;
+        right: 0;
+        color: #d5d6d6;
+        font-weight: 400;
+        font-size: 38px;
+        text-align: center;
+        small{
+          font-size: 25px;
+        }
+      }
+      .sex{
+        font-size: 0;
+        text-align: center;
+        padding: 0 30px;
+        p{
+          vertical-align: top;
+          display: inline-block;
+          width: 48%;
+          position: relative;
+          color: #757575;
+          font-size: 14px;
+          font-weight: 400;
+          text-transform: lowercase;
+          span{
+            position: relative;
+            padding-left: 23px;
+            text-transform: lowercase;
+          }
+          span:before{
+            content: "";
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            top: 50%;
+            margin-top: -4px;
+            left: 0;
+            border-radius: 50%;
+          }
+          &.m span:before{
+            background-color: #42c5e8;
+          }
+          &.f span:before{
+            background-color: #fb7e79;
+          }
+        }
+      }
+    }
+    .ages{
+      padding-bottom: 20px;
+      .title{
+        color: #9b9b9b;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 0 18px;
+        margin-bottom: 20px;
+      }
+
+      .ageitem{
+        padding: 0 16px;
+        margin-bottom: 15px;
+        display: block;
+        .name{
+          color: #757575;
+          font-size: 12px;
+          font-weight: 300;
+          margin-bottom: 3px;
+        }
+        .sexbar{
+          padding-right: 50px;
+          width: 100%;
+          float: left;
+          span:nth-child(1){
+            height: 4px;
+            background-color: #42c5e8;
+            display: block;
+            float: left;
+          }
+          span:nth-child(2){
+            height: 4px;
+            background-color: #fb7671;
+            display: block;
+            float: left;
+          }
+        }
+        .count{
+          line-height: 20px;
+          margin-top: -14px;
+          float: right;
+          color: #9b9b9b;
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

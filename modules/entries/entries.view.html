@@ -1,0 +1,89 @@
+<ion-view view-title="{{lang[appLang.type]['entries_and_results']}}" id="entries">
+    <div class="button-bar tabs-top">
+        <label class="button button-calm">
+            <input type="radio" name="gender" data-ng-model="vm.gender" checked>
+            <span>{{lang[appLang.type]['both']}}</span>
+        </label>
+        <label class="button button-calm">
+            <input type="radio" name="gender" data-ng-model="vm.gender" value="male">
+            <span>{{lang[appLang.type]['male']}}</span>
+        </label>
+        <label class="button button-calm">
+            <input type="radio" name="gender" data-ng-model="vm.gender" value="female">
+            <span>{{lang[appLang.type]['female']}}</span>
+        </label>
+    </div>
+    <div id="entries3-elastic-header" class="elastic-header">
+        <div class="img" image-lazy-src="{{vm.data.pp.image || 'img/placeholder-big.png'}}" image-lazy-loader="android" image-lazy-background-image="true">
+            <h2>{{vm.data.pp.title}}<br><small>FCI {{vm.data.pp.FCI}}</small></h2>
+        </div>
+    </div>
+    <ion-content has-bouncing="false" delegate-handle="example-scroller" elastic-header="entries3-elastic-header" overflow-scroll="false">
+        <div class="data-set" data-ng-show="vm.data.pp.isEmpty">
+            <div class="nores" data-ng-show="!vm.data.pageLoaded">{{lang[appLang.type]['no_info']}}</div>
+            <span class="spinner" data-ng-show="vm.data.pageLoaded"></span>
+        </div>
+        <div class="draft_mode" data-ng-show="vm.data.pp.draft_mode">
+            <span>{{lang[appLang.type]['drafted']}}</span>
+        </div>
+        <div class="content">
+            <form action="#" class="filter">
+                <div class="labels">
+                    <div class="sellabel">
+                        <label class="select">
+                            <select name="" data-ng-model="vm.filter.class">
+                                <option value="">{{lang[appLang.type]['all_classes']}}</option>
+                                <option value="{{value}}" data-ng-repeat="(key, value) in vm.data.pp.classes">
+                                    {{lang[appLang.type]['class_'+(value).toLowerCase().replace(" ", "_")]}}
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="toglabel">
+                        <label class="toggle liveresults {{appLang.type}}">
+                            <span>{{lang[appLang.type]['live_results']}}</span>
+                            <input type="checkbox" data-ng-model="vm.settings.liveresult" data-ng-change="func.unlocRealtime()">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </form>
+            <!-- {{zzz.result}} -->
+            <ion-list class="table-wiew">
+                <div data-ng-hide="vm.data.pp.isEmpty">
+                    <div class="line titles">
+                        <div class="tts">
+                            <div><span>#</span></div>
+                            <div><span>{{lang[appLang.type]['name']}}</span></div>
+                            <div><span><span class="result">{{lang[appLang.type]['res']}}</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group" data-ng-repeat="(key, value) in vm.data.pp.participants">
+                        <ion-item class="item-divider" data-ng-show="value.leng.length">
+                            {{lang[appLang.type]['class_'+(data.classnames['dog_class'+key]).toLowerCase().replace(" ", "_")]}}
+                        </ion-item>
+                        <ion-item data-ng-repeat="item in value.leng = (value | filter:filter:filterFCI | filter:{gender: gender}:true)" class="line" entrie-item item="item" eid="{{data.eventId}}" bid="{{vm.data.breedId}}" uid="{{usr.uid}}">
+                            <div class="tts {{item.shown ? 'active' : ''}}">
+                                <div data-ng-click="vm.showDetailInfo(item.id_db)"><span>{{item.ring_number || '-'}}</span><i class="after"></i></div>
+                                <div data-ng-click="vm.showDetailInfo(item.id_db)"><span>{{item.title}}</span><i class="after"></i></div>
+                                <div>
+                                    <span data-ng-show="usrLogged">
+                                    <span class="result" data-ng-click="vm.clickSwitch(item.result, data.firebase_results[enchodePN(item.id)].result, item.verified_results || data.firebase_results[enchodePN(item.id)].admin, usr.admin_status, settings.liveresult)">
+                                    <span>{{ (settings.liveresult ? data.firebase_results[enchodePN(item.id)].result : item.result) | clearSlash}}</span>
+                                    <i class="ver" data-ng-show="vm.data.firebase_results[enchodePN(item.id)].admin && vm.settings.liveresult"></i>
+                                    </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </ion-item>
+                    </div>
+                    <ion-infinite-scroll data-ng-show="vm.data.pp.participants.length >= 30" data-ng-if="!vm.data.noMoreNews" on-infinite="vm.loadMore()" distance="1%">
+                    </ion-infinite-scroll>
+                </div>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-view>

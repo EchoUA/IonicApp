@@ -1,0 +1,52 @@
+#judge{
+  .tabs-top > .tabs, .tabs.tabs-top{
+    .tab-item{
+      max-width: 10000px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+  .elastic-header {
+    margin-top: 93px;
+  }
+  .data-set{
+    top: 600px;
+  }
+  @media (max-width: 768px) {.data-set{top: 450px;}}
+  @media (max-width: 600px) {.data-set{top: 300px;}}
+  @media (max-width: 480px) {.data-set{top: 230px;}}
+  .post{
+    padding: 15px;
+    &>p{
+      color: #212121;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 24px;
+    }
+  }
+  .list{
+    .item{
+      position: relative;
+      padding: 14px 60px 14px 40px;
+      color: #228096;
+      font-size: 16px;
+      line-height: 18px;
+      display: block;
+      font-weight: 400;
+      text-decoration: none !important;
+      &:after{
+        position: absolute;
+        width: 8px;
+        height: 14px;
+        right: 30px;
+        top: 50%;
+        margin-top: -7px;
+        content: "\f125";
+        font-family: "Ionicons";
+        line-height: 14px;
+        color: #fb7671;
+        font-size: 18px;
+      }
+    }
+  }
+}

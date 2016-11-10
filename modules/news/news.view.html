@@ -1,0 +1,52 @@
+<ion-view view-title="{{lang[appLang.type]['news']}}" id="news">
+    <div class="slider-box elastic-header" id="news-elastic-header">
+        <ion-slide-box data-on-slide-changed="vm.slideChange($index)" data-delegate-handle="main-slider">
+            <ion-slide data-ng-repeat="item in vm.data.mainnews | orderBy:'-date'">
+                <a href="#{{ROUTES.MAIN}}{{ROUTES.NEWS}}/{{item.id}}" image-lazy-src="{{item.image  ||'img/placeholder-big.png'}}" image-lazy-loader="android" image-lazy-background-image="true">
+                    <span class="video" data-ng-show="item.video"></span>
+                    <span>
+                        <p>{{item.title}} </p>
+                    </span>
+                </a>
+            </ion-slide>
+        </ion-slide-box>
+        <div class="slide-prev" data-ng-click="vm.prevSlide()"></div>
+        <div class="slide-next" data-ng-click="vm.nextSlide()"></div>
+    </div>
+    <ion-content has-bouncing="false" delegate-handle="news-scroller" lazy-scroll overflow-scroll="false">
+        <ion-refresher pulling-text="Pull to refresh..." spinner="android" on-refresh="vm.doRefresh()">
+        </ion-refresher>
+        <div class="slider-box placeholder">
+            <ion-slide-box on-slide-changed="vm.slide2Change($index)" delegate-handle="placeholder">
+                <ion-slide data-ng-repeat="item in vm.data.mainnews | orderBy:'-date'">
+                    <a image-lazy-src="{{item.image  ||'img/placeholder-big.png'}}" image-lazy-loader="android" image-lazy-background-image="true" href="#{{ROUTES.MAIN}}{{ROUTES.NEWS}}/{{item.id}}">
+                        <span class="video" data-ng-show="item.video"></span>
+                        <span>
+              <p>{{item.title}} </p>
+            </span>
+                    </a>
+                </ion-slide>
+            </ion-slide-box>
+            <div class="slide-prev" data-ng-click="vm.prevSlide()"></div>
+            <div class="slide-next" data-ng-click="vm.nextSlide()"></div>
+        </div>
+        <div data-ng-show="vm.data.mainnews.length">
+        </div>
+        <div class="data-set" data-ng-hide="vm.data.news.length">
+            <div class="nores">{{lang[appLang.type]['no_info']}}</div>
+        </div>
+        <div class="content">
+            <ion-list class="news-list" data-ng-show="vm.data.news.length">
+                <ion-item ng-repeat="item in vm.data.news | orderBy:'-date'" href="#{{ROUTES.MAIN}}{{ROUTES.NEWS}}/{{item.id}}" class="item-thumbnail-left">
+                    <div class="item-image" image-lazy-src="{{item.image ||'img/placeholder-small.png'}}" image-lazy-loader="android" image-lazy-background-image="true">
+                        <span class="video" data-ng-show="item.video"></span>
+                    </div>
+                    <h2>{{item.title}}</h2>
+                    <p>{{item.short_content}}</p>
+                </ion-item>
+            </ion-list>
+            <ion-infinite-scroll data-ng-show="data.news.length >= 10" data-ng-if="!vm.data.noMoreNews" on-infinite="loadMore()" distance="1%">
+            </ion-infinite-scroll>
+        </div>
+    </ion-content>
+</ion-view>

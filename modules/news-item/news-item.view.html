@@ -1,0 +1,34 @@
+<ion-view view-title="{{lang[appLang.type]['news']}}" id="newsItem">
+    <div id="news-item-elastic-header" class="elastic-header">
+        <div class="img" image-lazy-src="{{vm.data.article.image}}" image-lazy-loader="android" image-lazy-background-image="true">
+            <a href="javascript:void(0)" class="open-video video" data-ng-show="vm.data.article.video" data-ng-click="vm.playVideo()"></a>
+            <h2>{{vm.data.article.title}}</h2>
+        </div>
+    </div>
+    <ion-content has-bouncing="false" delegate-handle="new-scroller" overflow-scroll="false">
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="vm.doRefresh()">
+        </ion-refresher>
+        <div class="elastic-header placeholder">
+            <div class="img" image-lazy-src="{{vm.data.article.image}}" image-lazy-loader="android" image-lazy-background-image="true">
+                <h2>{{data.article.title}}</h2>
+                <a href="javascript:void(0)" class="open-video" data-ng-show="vm.data.article.video" data-ng-click="vm.playVideo()"></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="post">
+                <div class="data">
+                    <div class="time">{{lang[appLang.type]['updated']}} {{(vm.data.article.date * 1000) | date:"dd-MM-yyyy"}}</div>
+                    <ul class="share">
+                        <li><i class="icon ion-android-share-alt" data-ng-click="vm.shareArticle(vm.data.article.content, vm.data.article.image)"></i></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div data-ng-bind-html="vm.data.article.content"></div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+<div class="videopopup" style="display: none;">
+    <span class="close" data-ng-click="vm.stopVideo()"></span>
+    <iframe data-ng-src="{{trusted(vm.data.article.video)}}" frameborder="0"></iframe>
+</div>

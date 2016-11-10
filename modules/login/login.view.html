@@ -1,0 +1,30 @@
+<ion-view view-title="{{lang[appLang.type]['sign_in']}}" id="login">
+    <ion-content has-bouncing="false" class="padding">
+        <form>
+            <div class="form_in">
+                <img src="img/logo-login.svg" class="logo">
+                <div class="list">
+                    <label class="item item-input calm-border" data-ng-class="{ 'assertive-border': vm.errors.email, 'calm-border': !vm.errors.email }">
+                        <input type="text" placeholder="{{lang[appLang.type]['email']}}" data-ng-model="vm.formdata.email" name="email">
+                        <span class="assertive" data-ng-hide="!vm.errors.email">
+                            <span data-ng-show="vm.errors.email">{{vm.errors.email}}</span>
+                        </span>
+                    </label>
+                    <label class="item item-input" data-ng-class="{ 'assertive-border': errors.password, 'calm-border': !vm.errors.password}">
+                        <input type="password" placeholder="{{lang[appLang.type]['password']}}" class="border-calm" data-ng-model="vm.formdata.password" name="password">
+                        <span class="assertive" data-ng-hide="!vm.errors.password">
+                            <span data-ng-show="vm.errors.password">{{vm.errors.password}}</span>
+                        </span>
+                    </label>
+                </div>
+                <button class="button button-block button-calm" data-ng-click=" vm.authWithEmail()">{{lang[appLang.type]['sign_in']}}</button>
+                <button class="button button-block button-calm fb" data-ng-click=" vm.authWithFacebook()">{{lang[appLang.type]['sign_in_via_fb']}}</button>
+                <button class="button button-block button-calm gp" data-ng-click=" vm.authWithGoogle()">{{lang[appLang.type]['sign_in_via_google']}}</button>
+                <div class="sign">
+                    {{lang[appLang.type]['dont_have_an_account_yet1']}} <a href="#{{ROUTES.MAIN}}{{ROUTES.REGISTRATION}}">
+          {{lang[appLang.type]['dont_have_an_account_yet2']}}</a>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
